@@ -134,8 +134,8 @@ def lsb_embed(background, watermark, embed_bit=3):
 
 ## 实验结果与分析
 
-### 嵌入结果
-<img src="C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20250719130907057.png" alt="image-20250719130907057" style="zoom:30%;" />
+### 运行结果
+<img src="D:\大三暑假\网络空间安全创新创业实践\PracticeCourse\project2\output_images\embedding_results.png" alt="embedding_results" style="zoom:24%;" />
 
 可以看到图片的左上角已被嵌入水印
 
