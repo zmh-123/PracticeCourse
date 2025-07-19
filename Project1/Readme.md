@@ -17,9 +17,7 @@
 
 - 通过固定参数 $FK$ 和 $ CK $ 生成 32 轮密钥 $rk_0, rk_1, ..., rk_{31}$ 。
 - 轮密钥扩展公式：
-  $$
-  K_i = MK_i \oplus FK_i, \quad i=0,1,2,3
-  $$
+  $K_i = MK_i \oplus FK_i, \quad i=0,1,2,3$
   
   $$
   K_{i+4} = K_i \oplus L'(Sbox(K_{i+1} \oplus K_{i+2} \oplus K_{i+3} \oplus CK_i)), \quad i=0,...,31
