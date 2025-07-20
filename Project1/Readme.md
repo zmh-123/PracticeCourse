@@ -71,7 +71,7 @@ T-table优化解密 1000000 次耗时: 193.572 毫秒, 速度: 5,166,040 块/秒
 
 ### 1. 指令集优化（AES-NI、GFNI、VPROLD等）
 - **AES-NI**：虽然AES-NI是为AES设计的，但部分指令（如PSHUFB、PCLMULQDQ）可用于加速SM4的S盒查找和Galois域乘法。
-- **GFNI**（Galois Field New Instructions）：Intel新一代指令集，专为 $ GF(2^8) $ 等有限域运算设计，可极大提升S盒和GCM乘法效率。
+- **GFNI**（Galois Field New Instructions）：Intel新一代指令集，专为 $GF(2^8)$等有限域运算设计，可极大提升S盒和GCM乘法效率。
 - **VPROLD**：AVX-512指令集中的循环移位指令，可高效实现SM4中的线性变换。
 - **后续计划**：有时间将基于这些指令集实现SM4的SIMD并行加速，进一步提升加解密速度，达到OpenSSL等高性能库的水平。
 
