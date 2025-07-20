@@ -91,16 +91,10 @@ c）：基于sm3的实现，根据RFC6962构建Merkle树（10w叶子节点），
 ### 3. 消息扩展（消息调度）
 - **数学原理**：
   - $W[0..15] = M[0..15]$（原始分组）
-  -  $$
-    W[i] = P_1(W[i-16] \oplus W[i-9] \oplus (W[i-3] \lll 15)) \oplus (W[i-13] \lll 7) \oplus W[i-6], \quad i=16..67
-    $$
-  - $$
-    W'_i = W[i] \oplus W[i+4], \quad i=0..63
-    $$
+  -  $ [i] = P_1(W[i-16] \oplus W[i-9] \oplus (W[i-3] \lll 15)) \oplus (W[i-13] \lll 7) \oplus W[i-6], \quad i=16..67$ 
+  -  $W'_i = W[i] \oplus W[i+4], \quad i=0..63$
   - 其中
-    $$
-    P_1(X) = X \oplus (X \lll 15) \oplus (X \lll 23)
-    $$
+     $P_1(X) = X \oplus (X \lll 15) \oplus (X \lll 23)$
 - **代码实现**：
   
   ```c++
@@ -140,26 +134,16 @@ c）：基于sm3的实现，根据RFC6962构建Merkle树（10w叶子节点），
 - **数学原理**：
   - 64轮迭代，A-H八个32位变量循环更新：
     
-    - $$
-      SS_1 = ((A \lll 12) + E + (T_j \lll j)) \lll 7
-      $$
-    - $$
-      SS_2 = SS_1 \oplus (A \lll 12)
-      $$
-    - $$
-      TT_1 = FF(A,B,C,j) + D + SS_2 + W'_j
-      $$
-    - $$
-      TT_2 = GG(E,F,G,j) + H + SS_1 + W_j
-      $$
+    -  $SS_1 = ((A \lll 12) + E + (T_j \lll j)) \lll 7$
+    -  $ SS_2 = SS_1 \oplus (A \lll 12)$
+    -  $TT_1 = FF(A,B,C,j) + D + SS_2 + W'_j$
+    -  $TT_2 = GG(E,F,G,j) + H + SS_1 + W_j$
     - 变量循环移位和赋值
   - 其中：
-    - $$
-      FF_j(X,Y,Z) = \begin{cases}
+    -  $ FF_j(X,Y,Z) = \begin{cases}
         X \oplus Y \oplus Z, & 0 \leq j \leq 15 \\
         (X \land Y) \lor (X \land Z) \lor (Y \land Z), & 16 \leq j \leq 63
-      \end{cases}
-      $$
+      \end{cases}$
     - $$
       GG_j(X,Y,Z) = \begin{cases}
         X \oplus Y \oplus Z, & 0 \leq j \leq 15 \\
