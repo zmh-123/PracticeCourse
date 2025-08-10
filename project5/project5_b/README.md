@@ -103,4 +103,3 @@ python attack1.py
 ## 参考
 
 - 20250713-wen-sm2-public.pdf
-- 《SM2 椭圆曲线公钥密码算法》标准
